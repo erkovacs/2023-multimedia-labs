@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Image Editor</title>
+    <meta name="description" content="HTML5 image editor.">
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="image-editor.css">
+    <meta name="theme-color" content="#2F3BA2">
+    <link rel="apple-touch-icon" href="img/icons/icon-152x152.png">
+
+    <!-- Manifest -->
+    <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+    <canvas id="visibleCanvas">
+        Your browser does not support the canvas element.
+    </canvas>
+
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file -->
+    <input type="file" id="fileBrowser" accept="image/*" class="outline top">
+
+    <div class="outline bottom">
+        <!-- https://developer.mozilla.org/en/docs/Web/Guide/HTML/Using_data_attributes -->
+        <button type="button" data-effect="normal">Normal</button>
+
+        <button type="button" data-effect="grayscale">Grayscale</button>
+        <button type="button" data-effect="threshold">Threshold</button>
+        <button type="button" data-effect="sepia">Sepia</button>
+        <button type="button" data-effect="invert">Invert Colors</button>
+        <button type="button" data-effect="pixelate">Pixelate</button>
+        <button type="button" data-effect="twoChannels">2 Channels</button>
+        <button type="button" data-effect="red">Red</button>
+        <button type="button" data-effect="green">Green</button>
+        <button type="button" data-effect="blue">Blue</button>
+
+        <button id="btnSave" type="button">Save</button>
+
+        <!-- Install button, hidden by default -->
+        <div id="installContainer" class="hidden">
+            <button id="butInstall" type="button">
+                Install
+            </button>
+        </div>
+    </div>
+
+    <div class="loader hidden">
+        <div id="spinner"></div>
+    </div>
+
+    <script src="image-editor.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

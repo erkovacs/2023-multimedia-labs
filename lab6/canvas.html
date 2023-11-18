@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./css/styles.css" rel="stylesheet"/>
+</head>
+<body>
+    <img src="./images/raccoon.jpg" id="raccoonImage"/>
+    <canvas id="myCanvas" class="canvas_element"></canvas>
+    <canvas id="otherCanvas" class="canvas_element"></canvas>
+    <script>
+        const image = document.querySelector('#raccoonImage');
+        image.addEventListener('load', () => {
+            const canvas = document.querySelector('#myCanvas');
+            const { naturalWidth, naturalHeight } = image;
+            canvas.width = naturalWidth;
+            canvas.height = naturalHeight;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(image, 0, 0);
+            const imageData = ctx.getImageData(0, 0, naturalWidth, naturalHeight);
+            console.log(imageData.data);
+            for (let i = 0; i < imageData.data.length; i+=4) {
+                let r = imageData.data[i];
+                let g = imageData.data[i+1];
+                let b = imageData.data[i+2];
+                const newValue = (r+g+b)/3 >= 100 ? 255 : 0;
+                imageData.data[i] = imageData.data[i+1] = imageData.data[i+2] = newValue;
+            }
+            const otherCanvas = document.querySelector('#otherCanvas');
+            otherCanvas.width = naturalWidth;
+            otherCanvas.height = naturalHeight;
+            const otherContext = otherCanvas.getContext('2d');
+            otherContext.putImageData(imageData, 0, 0);
+        });
+    </script>
+</body>
+</html>
