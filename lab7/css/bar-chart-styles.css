@@ -1,0 +1,9 @@
+.bar:hover {
+    fill: red !important;
+}
+
+#tooltip {
+    display: none;
+    background-color: #fefefe;
+    border: 2px solid #000000;
+}

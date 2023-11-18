@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/bar-chart.js"></script>
+    <link href="./css/bar-chart-styles.css" rel="stylesheet"/>
+</head>
+<body>
+    <div id="barChart" style="height:300px; width: 300px;"></div>
+    <!-- <div id="barChart1" style="height:300px; width: 300px;"></div>
+    <div id="barChart2" style="height:300px; width: 300px;"></div> -->
+    <script>
+        const data = [
+                ['Label 1', 1],
+                ['Label 2', 2],
+                ['Label 3', 3],
+            ];
+    
+        const barChart = new BarChart(document.getElementById("barChart"));
+        barChart.draw(data);
+        // const barChart1 = new BarChart(document.getElementById("barChart1"));
+        // barChart.draw(data);
+        // const barChart2 = new BarChart(document.getElementById("barChart2"));
+        // barChart.draw(data);
+    </script>
+    <div id="tooltip"></div>
+</body>
+</html>
